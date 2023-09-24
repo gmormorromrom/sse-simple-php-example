@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>PHP SSE demo</title>
+</head>
+
+<body>
+
+</html> 
+<h1>PHP SSE demo</h1>
+
+<ol id="list">
+</ol>
+
+<script>
+  // Create new event, the server script is sse.php
+  var eventSource = new EventSource("sse.php");
+
+  // Event when receiving a message from the server
+  eventSource.onmessage = function (event) {
+    // Append the message to the ordered list
+    document.getElementById("list").innerHTML += '<li>' + event.data + "</li>";
+  };
+</script>
+
+</body>
